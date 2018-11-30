@@ -22,9 +22,9 @@ ENV SIAB_VERSION=2.19 \
 RUN yum install -y  openssh-clients sudo git wget openssl bash-completion passwd hostname && \
     wget http://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm && \
     rpm -ivh epel-release-latest-7.noarch.rpm && \
-    microdnf install -y shellinabox && \
-    microdnf install atomic-openshift-clients --enablerepo="rhel-7-server-ose-3.11-rpms" -y && \
-    microdnf clean all  && \
+    yum install -y shellinabox && \
+    yum install atomic-openshift-clients --enablerepo="rhel-7-server-ose-3.11-rpms" -y && \
+    yum clean all  && \
     if [ -e /var/run/nologin ]; then mv /var/run/nologin /var/run/nologin.bak; fi
 
 EXPOSE 4200
