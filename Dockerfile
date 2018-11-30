@@ -1,4 +1,4 @@
-FROM cnetos:centos7 
+FROM centos:centos7 
 MAINTAINER chernand@redhat.com
 
 ENV SIAB_VERSION=2.19 \
