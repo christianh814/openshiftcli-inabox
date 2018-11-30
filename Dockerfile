@@ -1,5 +1,5 @@
-FROM registry.access.redhat.com/rhel7/rhel-atomic 
-MAINTAINER Veer Muchandi<veer@redhat.com>
+FROM centos7 
+MAINTAINER chernand@redhat.com
 
 ENV SIAB_VERSION=2.19 \
   SIAB_USERCSS="Colors:+/usr/share/shellinabox/color.css,Normal:-/usr/share/shellinabox/white-on-black.css,Monochrome:-/usr/share/shellinabox/monochrome.css" \
@@ -19,7 +19,7 @@ ENV SIAB_VERSION=2.19 \
   SIAB_PKGS2=none \
   SIAB_SCRIPT=none
 
-RUN microdnf install -y --enablerepo=rhel-7-server-rpms openssh-clients sudo git wget openssl bash-completion passwd hostname && \
+RUN yum install -y  openssh-clients sudo git wget openssl bash-completion passwd hostname && \
     wget http://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm && \
     rpm -ivh epel-release-latest-7.noarch.rpm && \
     microdnf install -y shellinabox && \
